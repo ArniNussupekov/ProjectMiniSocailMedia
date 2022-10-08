@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class User {
@@ -7,6 +8,7 @@ public class User {
     public String surname;
     private int age;
     private BigInteger phone_number;
+    private LinkedList<User> subscription;
 
     User(){
         System.out.println("Welcome to registration! Please enter name, surname and so on");
@@ -15,6 +17,13 @@ public class User {
         System.out.println("Age: "); setAge(in.nextInt());
         System.out.println("Phone number: "); setPhone_number(new BigInteger(in.next()));
     }
+
+     public void subscribe(User user){
+        subscription.add(user);
+     }
+     public void unsubscribe(User user){
+        subscription.remove(user);
+     }
 
     public String getName() {
         return name;
@@ -50,9 +59,10 @@ public class User {
 
     @Override
     public String toString() {
-        return " name='" + name + '\n' +
-                " surname='" + surname + '\n' +
-                " age=" + age +
-                "\n phone_number=" + phone_number;
+        return " name: " + name + '\n' +
+                " surname: " + surname + '\n' +
+                " age: " + age +
+                "\n phone_number: " + phone_number +
+                "\n Subscribed users" + subscription;
     }
 }
