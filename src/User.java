@@ -63,6 +63,6 @@ public class User {
                 " surname: " + surname + '\n' +
                 " age: " + age +
                 "\n phone_number: " + phone_number +
-                "\n Subscribed users" + subscription;
+                "\n Subscribed users: " + subscription;
     }
 }
