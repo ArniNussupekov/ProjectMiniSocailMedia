@@ -6,7 +6,9 @@ public class Test {
         User user1 = new User();
         User user2 = new User();
 
-        user1.subscribe(user2);
+
+            user1.subscribe(user2);
+
         System.out.println(user1.getSubscription());
     }
 }

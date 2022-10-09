@@ -17,6 +17,7 @@ public class User {
         System.out.println("Age: "); setAge(in.nextInt());
         System.out.println("Phone number: "); setPhone_number(in.next());
         System.out.println("Set the password: "); setPassword(in.next());
+        subscription = new LinkedList<>();
     }
 
     public String getPassword(){
@@ -26,7 +27,7 @@ public class User {
         this.password = password;
     }
 
-    public void subscribe(User user){
+    public void subscribe(User user) {
         subscription.add(user);
     }
     public void unsubscribe(User user){
