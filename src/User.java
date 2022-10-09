@@ -1,4 +1,3 @@
-import java.math.BigInteger;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -7,23 +6,36 @@ public class User {
     public String name;
     public String surname;
     private int age;
-    private BigInteger phone_number;
+    private String phone_number;
     private LinkedList<User> subscription;
+    private String password;
 
     User(){
         System.out.println("Welcome to registration! Please enter name, surname and so on");
         System.out.println("Name: "); setName(in.nextLine());
         System.out.println("Surname: "); setSurname(in.nextLine());
         System.out.println("Age: "); setAge(in.nextInt());
-        System.out.println("Phone number: "); setPhone_number(new BigInteger(in.next()));
+        System.out.println("Phone number: "); setPhone_number(in.next());
+        System.out.println("Set the password: "); setPassword(in.next());
     }
 
-     public void subscribe(User user){
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password = password;
+    }
+
+    public void subscribe(User user){
         subscription.add(user);
-     }
-     public void unsubscribe(User user){
+    }
+    public void unsubscribe(User user){
         subscription.remove(user);
-     }
+    }
+
+    public LinkedList<User> getSubscription(){
+        return subscription;
+    }
 
     public String getName() {
         return name;
@@ -49,11 +61,11 @@ public class User {
         this.age = age;
     }
 
-    public BigInteger getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(BigInteger phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
