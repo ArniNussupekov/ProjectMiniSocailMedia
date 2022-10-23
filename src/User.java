@@ -9,6 +9,7 @@ public class User {
     private String phone_number;
     private LinkedList<User> subscription;
     private String password;
+    public LinkedList<Post> posts;
 
     User(){
         System.out.println("Welcome to registration! Please enter name, surname and so on");
@@ -18,6 +19,7 @@ public class User {
         System.out.println("Phone number: "); setPhone_number(in.next());
         System.out.println("Set the password: "); setPassword(in.next());
         subscription = new LinkedList<>();
+        posts = new LinkedList<>();
     }
 
     public String getPassword(){

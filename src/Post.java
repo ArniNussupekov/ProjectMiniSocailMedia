@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 class Post {
-    public String post;
+    private String post;
     private int like;
     public LinkedList<String> comments;
 
