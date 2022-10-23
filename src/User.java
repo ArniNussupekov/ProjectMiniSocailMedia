@@ -22,18 +22,28 @@ public class User {
         posts = new LinkedList<>();
     }
 
-    public String getPassword(){
-        return password;
-    }
-    public void setPassword(String password){
-        this.password = password;
-    }
-
+    //actions
     public void subscribe(User user) {
         subscription.add(user);
     }
     public void unsubscribe(User user){
         subscription.remove(user);
+    }
+
+
+    //staff
+    public LinkedList<Post> getPosts() {
+        return posts;
+    }
+
+    public void createPost(String post) {
+        posts.add(new Post(post));
+    }
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password){
+        this.password = password;
     }
 
     public LinkedList<User> getSubscription(){

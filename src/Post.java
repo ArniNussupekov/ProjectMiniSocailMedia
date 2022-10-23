@@ -3,7 +3,7 @@ import java.util.LinkedList;
 class Post {
     private String post;
     private int like;
-    public LinkedList<String> comments;
+    private LinkedList<String> comments;
 
     Post(String post){
         this.post = post;
@@ -33,5 +33,10 @@ class Post {
 
     public void setComments(LinkedList<String> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+       return "Post: " + post;
     }
 }
