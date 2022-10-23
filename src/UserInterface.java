@@ -50,7 +50,12 @@ class UserInterface {
               System.exit(0);
           }
       }
-   public void printMainMenu(){
+
+   private void printUsage(){
+       System.out.println("Hello, " + loggedUser.getName() + ", what do you want?");
+       System.out.println("1. Create post\n 2. Comment Post\n");
+   }
+   private void printMainMenu(){
       System.out.println("Welcome to social media! This is main menu. Please, choose what to you want");
       System.out.println("1. Log in \n2. Register \n3. Exit\n");
    }
