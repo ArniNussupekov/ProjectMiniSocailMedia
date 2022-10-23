@@ -15,12 +15,15 @@ class UserInterface {
       }
 
       public void mainProcess(){
-       printMainMenu();
 
         while (choice != 3) {
+            printMainMenu();
             choice = in.nextInt();
                if (choice == 1){
-                 logIn();
+                   System.out.print("Enter your phone number and password: ");
+                   String number = in.next();
+                   String password = in.next();
+                   logIn(number, password);
                }
                if (choice == 2){
                  server.register();
@@ -30,11 +33,14 @@ class UserInterface {
                }
         }
       }
-      public void logIn(){
-         String number = in.nextLine();
-         String password = in.nextLine();
-          loggedUser = server.getUser(number, password);
-          isLogged = true;
+      public void logIn(String number, String password){
+          try {
+              loggedUser = server.getUser(number, password);
+              isLogged = true;
+              System.out.println("You have logged successfully!");
+          } catch (Exception ex){
+              ex.printStackTrace();
+          }
       }
    public void printMainMenu(){
       System.out.println("Welcome to social media! This is main menu. Please, choose what to you want");
