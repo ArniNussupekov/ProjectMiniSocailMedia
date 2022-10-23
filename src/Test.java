@@ -2,14 +2,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 public class Test {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        User user1 = new User();
-        User user2 = new User();
 
-
-            user1.subscribe(user2);
-
-        System.out.println(user1.getSubscription());
     }
 }
 
