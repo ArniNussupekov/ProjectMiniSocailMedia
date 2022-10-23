@@ -29,15 +29,13 @@ public class User {
     public void unsubscribe(User user){
         subscription.remove(user);
     }
-
+    public void createPost(String post) {
+        posts.add(new Post(post));
+    }
 
     //staff
     public LinkedList<Post> getPosts() {
         return posts;
-    }
-
-    public void createPost(String post) {
-        posts.add(new Post(post));
     }
     public String getPassword(){
         return password;

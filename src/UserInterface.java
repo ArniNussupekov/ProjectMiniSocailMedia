@@ -24,6 +24,8 @@ class UserInterface {
                    String number = in.next();
                    String password = in.next();
                    logIn(number, password);
+
+
                }
                if (choice == 2){
                  server.register();
@@ -33,6 +35,11 @@ class UserInterface {
                }
         }
       }
+
+      void usage(){
+
+      }
+
       public void logIn(String number, String password){
           try {
               loggedUser = server.getUser(number, password);
@@ -40,6 +47,7 @@ class UserInterface {
               System.out.println("You have logged successfully!");
           } catch (Exception ex){
               ex.printStackTrace();
+              System.exit(0);
           }
       }
    public void printMainMenu(){
