@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Scanner;
 
 class Post {
     private String post;
@@ -9,6 +10,11 @@ class Post {
         this.post = post;
         like = 0;
         comments = new LinkedList<>();
+    }
+
+    public void makeComment(){
+        Scanner sc = new Scanner(System.in);
+        comments.add(sc.nextLine());
     }
 
     public String getPost() {

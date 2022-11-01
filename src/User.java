@@ -29,7 +29,9 @@ public class User {
     public void unsubscribe(User user){
         subscription.remove(user);
     }
-    public void createPost(String post) {
+    public void createPost() {
+        Scanner sc = new Scanner(System.in);
+        String post = sc.nextLine();
         posts.add(new Post(post));
     }
 
