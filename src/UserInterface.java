@@ -62,11 +62,14 @@ class UserInterface {
               }
           }
       }
-
       private void blockUser(){
           System.out.println("\tBlock User");
           chosenUser = chooseUser();
-          loggedUser.blockUser(chosenUser);
+          if (loggedUser.getPhone_number().equals(chosenUser.getPhone_number())){
+              System.out.println("You can't block yourself!");
+              return;
+          }
+          loggedUser.blockUser(chosenUser.getPhone_number());
           System.out.println(loggedUser.getBlockList());
       }
 
@@ -76,6 +79,10 @@ class UserInterface {
           Post post;
           try {
               chosenUser = chooseUser();
+              if (chosenUser.getBlockList().contains(loggedUser.getPhone_number())){
+                  System.out.println("You are blocked!");
+                  return;
+              }
               System.out.println("Choose post that you want to like (where first is 0 and so on): ");
               System.out.println( posts = chosenUser.getPosts());
 
@@ -118,6 +125,10 @@ class UserInterface {
         HashMap<String, User> users = server.getUsers();
 
         try {
+            if (users.get(number).getBlockList().contains(loggedUser.getPhone_number())){
+                System.out.println("You are blocked!");
+                return;
+            }
             loggedUser.subscribe(users.get(number));
             System.out.println("Subscribed successfully!");
         } catch (Exception e){
@@ -133,6 +144,10 @@ class UserInterface {
           Post post;
             try {
                 chosenUser = chooseUser();
+                if (chosenUser.getBlockList().contains(loggedUser.getPhone_number())){
+                    System.out.println("You are blocked!");
+                    return;
+                }
                 System.out.println("Choose post that you want to comment (where first is 0 and so on): ");
                 System.out.println(chosenUser.getPosts());
 

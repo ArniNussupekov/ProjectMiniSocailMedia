@@ -8,7 +8,7 @@ public class User {
     private int age;
     private String phone_number;
     private LinkedList<User> subscription;
-    private LinkedList<User> blockList;
+    private LinkedList<String> blockList;
     private String password;
     public LinkedList<Post> posts;
     public LinkedList<Post> likedPosts;
@@ -26,7 +26,7 @@ public class User {
         likedPosts = new LinkedList<>();
     }
 
-    public void blockUser(User blockingUser){blockList.add(blockingUser);}
+    public void blockUser(String blockingUser){blockList.add(blockingUser);}
 
     //actions
     public void subscribe(User user) {
@@ -87,7 +87,7 @@ public class User {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
-    public LinkedList<User> getBlockList() {return blockList;}
+    public LinkedList<String> getBlockList() {return blockList;}
 
     @Override
     public String toString() {
