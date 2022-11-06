@@ -100,4 +100,10 @@ public class User {
                 "\nLiked posts: " + likedPosts +
                 "\nBlocked Users: " + blockList;
     }
+
+    public void printLikes(){
+        for (int i = 0; i < posts.size(); i++){
+            System.out.println(posts.get(i).getLike());
+        }
+    }
 }

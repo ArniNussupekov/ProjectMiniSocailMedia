@@ -32,7 +32,6 @@ class UserInterface {
                  server.register();
                }
                if (choice == 3){
-                   System.out.println(server.getUsers());
                   System.exit(0);
                }
         }
