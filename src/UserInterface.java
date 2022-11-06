@@ -32,13 +32,14 @@ class UserInterface {
                  server.register();
                }
                if (choice == 3){
+                   System.out.println(server.getUsers());
                   System.exit(0);
                }
         }
       }
 
       void usage(){
-          while (choice != 5) {
+          while (choice != 6) {
               printUsage();
               choice = in.nextInt();
               if (choice == 1){
@@ -54,8 +55,28 @@ class UserInterface {
               unsubscribe();
               }
               if (choice == 5) {
-
+              likePost();
               }
+          }
+      }
+
+      private void likePost(){
+          LinkedList<Post> posts;
+          Scanner sc = new Scanner(System.in);
+          Post post;
+          try {
+              chosenUser = chooseUser();
+              System.out.println("Choose post that you want to like (where first is 0 and so on): ");
+              System.out.println(chosenUser.getPosts());
+
+              posts = chosenUser.getPosts();
+              post = posts.get(sc.nextInt());
+
+              post.likePost();
+              System.out.println("You Liked");
+          } catch (Exception ex){
+              System.out.println("Error when you tried like post");
+              System.exit(0);
           }
       }
 
@@ -68,6 +89,7 @@ class UserInterface {
        try {
            loggedUser.unsubscribe(users.get(number));
        } catch (Exception e){
+           System.out.println("Wrong id");
            System.exit(0);
        }
         System.out.println("Unsubscribed successfully!");
@@ -115,7 +137,6 @@ class UserInterface {
           HashMap<String, User> users = server.getUsers();
           System.out.println("Enter the phone number of user: ");
           String theUser = sc.nextLine();
-          System.out.println(users.get(theUser));
           return users.get(theUser);
       }
     public void logIn(String number, String password){
@@ -131,7 +152,7 @@ class UserInterface {
 
    private void printUsage(){
        System.out.println("What do you want?");
-       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe\n 5. Exit");
+       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe \n5.Like post\n 6. Exit");
    }
    private void printMainMenu(){
       System.out.println("Welcome to social media! This is main menu. Please, choose what to you want");

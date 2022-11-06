@@ -17,6 +17,10 @@ class Post {
         comments.add(sc.nextLine());
     }
 
+    public void likePost(){
+        like++;
+    }
+
     public String getPost() {
         return post;
     }

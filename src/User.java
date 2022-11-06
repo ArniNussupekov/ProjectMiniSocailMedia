@@ -8,6 +8,7 @@ public class User {
     private int age;
     private String phone_number;
     private LinkedList<User> subscription;
+    private LinkedList<User> blockList;
     private String password;
     public LinkedList<Post> posts;
 
@@ -19,6 +20,7 @@ public class User {
         System.out.println("Phone number: "); setPhone_number(in.next());
         System.out.println("Set the password: "); setPassword(in.next());
         subscription = new LinkedList<>();
+        blockList = new LinkedList<>();
         posts = new LinkedList<>();
     }
 
@@ -88,6 +90,7 @@ public class User {
                 " surname: " + surname + '\n' +
                 " age: " + age +
                 "\n phone_number: " + phone_number +
-                "\n Subscribed users: " + subscription;
+                "\n Subscribed users: " + subscription +
+                "\nPosts: " + posts;
     }
 }
