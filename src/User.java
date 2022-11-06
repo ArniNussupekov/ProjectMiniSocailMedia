@@ -26,6 +26,8 @@ public class User {
         likedPosts = new LinkedList<>();
     }
 
+    public void blockUser(User blockingUser){blockList.add(blockingUser);}
+
     //actions
     public void subscribe(User user) {
         subscription.add(user);
@@ -85,6 +87,7 @@ public class User {
     public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
+    public LinkedList<User> getBlockList() {return blockList;}
 
     @Override
     public String toString() {
@@ -94,6 +97,7 @@ public class User {
                 "\n phone_number: " + phone_number +
                 "\n Subscribed users: " + subscription +
                 "\nPosts: " + posts +
-                "\nLiked posts: " + likedPosts;
+                "\nLiked posts: " + likedPosts +
+                "\nBlocked Users: " + blockList;
     }
 }

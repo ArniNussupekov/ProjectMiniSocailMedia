@@ -39,7 +39,7 @@ class UserInterface {
       }
 
       void usage(){
-          while (choice != 6) {
+          while (choice != 7) {
               printUsage();
               choice = in.nextInt();
               if (choice == 1){
@@ -57,7 +57,17 @@ class UserInterface {
               if (choice == 5) {
               likePost();
               }
+              if (choice == 6) {
+                  blockUser();
+              }
           }
+      }
+
+      private void blockUser(){
+          System.out.println("\tBlock User");
+          chosenUser = chooseUser();
+          loggedUser.blockUser(chosenUser);
+          System.out.println(loggedUser.getBlockList());
       }
 
       private void likePost(){
@@ -77,7 +87,6 @@ class UserInterface {
 
                          post.likePost();
                          loggedUser.likedPosts.add(post);
-                         System.out.println(loggedUser.likedPosts);
                          System.out.println("You Liked");
           } catch (Exception ex){
               System.out.println("Error when you tried like post");
@@ -157,7 +166,7 @@ class UserInterface {
 
    private void printUsage(){
        System.out.println("What do you want?");
-       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe \n5.Like post\n 6. Exit");
+       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe \n5.Like post \n6. Block User \n 7. Exit");
    }
    private void printMainMenu(){
       System.out.println("Welcome to social media! This is main menu. Please, choose what to you want");
