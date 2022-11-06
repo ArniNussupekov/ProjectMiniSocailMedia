@@ -67,13 +67,18 @@ class UserInterface {
           try {
               chosenUser = chooseUser();
               System.out.println("Choose post that you want to like (where first is 0 and so on): ");
-              System.out.println(chosenUser.getPosts());
+              System.out.println( posts = chosenUser.getPosts());
 
-              posts = chosenUser.getPosts();
-              post = posts.get(sc.nextInt());
+                post = posts.get(sc.nextInt());
+                if (loggedUser.likedPosts.contains(post)){
+                    System.out.println("You have already liked this post!");
+                    return;
+                }
 
-              post.likePost();
-              System.out.println("You Liked");
+                         post.likePost();
+                         loggedUser.likedPosts.add(post);
+                         System.out.println(loggedUser.likedPosts);
+                         System.out.println("You Liked");
           } catch (Exception ex){
               System.out.println("Error when you tried like post");
               System.exit(0);

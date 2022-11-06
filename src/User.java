@@ -11,6 +11,7 @@ public class User {
     private LinkedList<User> blockList;
     private String password;
     public LinkedList<Post> posts;
+    public LinkedList<Post> likedPosts;
 
     User(){
         System.out.println("Welcome to registration! Please enter name, surname and so on");
@@ -22,6 +23,7 @@ public class User {
         subscription = new LinkedList<>();
         blockList = new LinkedList<>();
         posts = new LinkedList<>();
+        likedPosts = new LinkedList<>();
     }
 
     //actions
@@ -91,6 +93,7 @@ public class User {
                 " age: " + age +
                 "\n phone_number: " + phone_number +
                 "\n Subscribed users: " + subscription +
-                "\nPosts: " + posts;
+                "\nPosts: " + posts +
+                "\nLiked posts: " + likedPosts;
     }
 }
