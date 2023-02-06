@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -26,6 +28,39 @@ public class User {
         likedPosts = new LinkedList<>();
     }
 
+    public LinkedList<Post> getMax(int number){
+        LinkedList<Post> listPost = posts;
+        int length = listPost.size();
+        for (int i = 0; i < length-1; i++){
+            for (int j = 0; j < length-i-1; j++){
+                if (listPost.get(j).getLike()<listPost.get(j+1).getLike()){
+                    Post temp = listPost.get(j);
+                    listPost.set(j, listPost.get(j+1));
+                    listPost.set(j+1, temp);
+                }
+            }
+        }
+
+        if (number > listPost.size()){
+            return listPost;
+        }
+
+        LinkedList<Post> result = new LinkedList<>();
+        for (int i =0; i < number; i++){
+            result.add(listPost.get(i));
+        }
+        return result;
+    }
+
+    public void unblockUser(String unblockUser){
+        if (blockList.contains(unblockUser)){
+            blockList.remove(unblockUser);
+            System.out.println("Removed successfully!");
+        } else {
+            System.out.println("This user not found!");
+            return;
+        }
+    }
     public void blockUser(String blockingUser){blockList.add(blockingUser);}
 
     //actions

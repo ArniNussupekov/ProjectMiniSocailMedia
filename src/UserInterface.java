@@ -38,7 +38,7 @@ class UserInterface {
       }
 
       void usage(){
-          while (choice != 7) {
+          while (choice != 9) {
               printUsage();
               choice = in.nextInt();
               if (choice == 1){
@@ -59,8 +59,33 @@ class UserInterface {
               if (choice == 6) {
                   blockUser();
               }
+              if (choice == 7) {
+                  unblockUser();
+              }
+              if (choice == 8) {
+                  getMax();
+              }
           }
       }
+
+      private void getMax(){
+          System.out.println("\tGet Max of your posts");
+          Scanner in = new Scanner(System.in);
+          System.out.println("Enter number of posts");
+          int number = in.nextInt();
+          System.out.println(loggedUser.getMax(number));
+      }
+
+    private void unblockUser(){
+        System.out.println("\tUnblock User");
+        chosenUser = chooseUser();
+        if (loggedUser.getPhone_number().equals(chosenUser.getPhone_number())){
+            System.out.println("You can't unblock yourself!");
+            return;
+        }
+        loggedUser.unblockUser(chosenUser.getPhone_number());
+        System.out.println(loggedUser.getBlockList());
+    }
       private void blockUser(){
           System.out.println("\tBlock User");
           chosenUser = chooseUser();
@@ -180,7 +205,7 @@ class UserInterface {
 
    private void printUsage(){
        System.out.println("What do you want?");
-       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe \n5.Like post \n6. Block User \n 7. Exit");
+       System.out.println("1. Create post\n 2. Comment Post\n 3. Subscribe\n 4.Unsubscribe \n5.Like post \n6. Block User \n 7.Unblock user\n8.Get max\n9.Exit");
    }
    private void printMainMenu(){
       System.out.println("Welcome to social media! This is main menu. Please, choose what to you want");
